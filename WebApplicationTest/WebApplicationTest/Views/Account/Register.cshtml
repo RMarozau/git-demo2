@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+@model WebApplicationTest.Models.RegisterModel
+<h2>Регистрация нового пользователя</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <hr />
+        @Html.ValidationSummary(false)
+
+        <div>
+            Электронный адрес
+            <div>
+                @Html.EditorFor(model => model.Email)
+            </div>
+        </div>
+
+        <div>
+            Год рождения
+            <div>
+                @Html.EditorFor(model => model.Year)
+            </div>
+        </div>
+
+        <div>
+            Пароль
+            <div>
+                @Html.EditorFor(model => model.Password)
+            </div>
+        </div>
+
+        <div>
+            Подтвердить пароль
+            <div>
+                @Html.EditorFor(model => model.PasswordConfirm)
+            </div>
+        </div>
+        
+
+        <div>
+            Выбирите роль для пользователя
+            <div>
+               @Html.DropDownListFor(model => model.Idrole, ViewBag.Roles as SelectList)
+            </div>
+        </div>
+        <br />
+        <div>
+            <div>
+                <input type="submit" value="Зарегистрировать" />
+            </div>
+        </div>
+    </div>
+}
+
+

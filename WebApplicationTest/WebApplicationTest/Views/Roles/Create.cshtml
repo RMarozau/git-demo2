@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+@model WebApplicationTest.Models.CreateRoleModel
+
+<h2>Создать роль</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken();
+
+    <div>
+        <p>Название: @Html.EditorFor(model => model.Name)</p>
+        <p>Описание: @Html.EditorFor(model=> model.Description)</p>
+        <p><input type="submit" value="Добавить" /></p>
+    </div>
+}

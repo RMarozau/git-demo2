@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Список команд";
+}
+@using WebApplicationTest.Models
+@model IEnumerable<Team>
+
+<h2>Список команд</h2>
+
+<table>
+    <tr>
+        <td>Номер</td>
+        <td>Название</td>
+        <td>Треннер</td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelitem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelitem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coach)
+            </td>
+
+            <td>
+                @Html.ActionLink("Редактировать", "EditTeam", new { id = item.Id }) |
+                @Html.ActionLink("Удалить", "DeleteTeam", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
+
+
+

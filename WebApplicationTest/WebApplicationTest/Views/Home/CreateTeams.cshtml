@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Добавление команды";
+}
+@model WebApplicationTest.Models.Team
+<h2>Добавить новую команду</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <p>
+            Имя команды <br />
+            @Html.EditorFor(model => model.Name)
+        </p>
+
+        <p>
+            Треннер <br />
+            @Html.EditorFor(model => model.Coach)
+        </p>
+
+        <input type="submit" value="Добавить Команду" />
+    </fieldset>
+
+    <div>
+        @Html.ActionLink("К списку игроков", "Index")
+    </div>
+}
+
+

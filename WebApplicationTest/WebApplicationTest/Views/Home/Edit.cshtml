@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Редактирование игрока";
+}
+@model  WebApplicationTest.Models.Player
+
+<h2>Редактирование игрока</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Баскетболист</legend>
+
+        <p>
+            Имя игрока <br />
+            @Html.EditorFor(model => model.Name)
+        </p>
+
+        <p>
+            Возраст <br />
+            @Html.EditorFor(model => model.Age)
+        </p>
+
+        <p>
+            Команда <br />
+            @Html.DropDownListFor(model => model.TeamId, ViewBag.Teams as SelectList)
+        </p>
+
+        <input type="submit" value="Изменить игрока" />
+    </fieldset>
+
+    <div>
+        @Html.ActionLink("К списку игроков", "Index")
+    </div>
+}
+
+
+

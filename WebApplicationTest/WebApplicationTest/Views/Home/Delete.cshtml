@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+}
+@model WebApplicationTest.Models.Player
+
+<h2>Удаление игрока. Вы действительно хотите удлаить игрока @Html.DisplayFor(m=>m.Name)? </h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td><input type="submit" value="Удалить" /></td>
+        </tr>
+        <tr>
+            <td>@Html.ActionLink("Назад","Index")</td>
+        </tr>
+    </table>
+    
+}
+

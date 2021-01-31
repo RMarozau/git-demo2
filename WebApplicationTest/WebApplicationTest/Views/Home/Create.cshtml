@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+@model  WebApplicationTest.Models.Player
+
+<h2>Добавить нового игрока в команду</h2>
+
+@using (Html.BeginForm())
+{
+   @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Баскетболист</legend>
+        
+        <p>
+            Имя игрока <br/>
+            @Html.EditorFor(model => model.Name)
+        </p>
+
+        <p>
+            Возраст <br />
+            @Html.EditorFor(model => model.Age)
+        </p>
+
+        <p>
+            Команда <br />
+            @Html.DropDownListFor(model => model.TeamId, ViewBag.Teams as SelectList)
+        </p>
+
+        <input type="submit" value= "Добавить игрока"/>
+    </fieldset>
+
+    <div>
+        @Html.ActionLink("К списку игроков", "Index")
+    </div>
+}
+

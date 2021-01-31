@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "DeleteTeam";
+}
+@model WebApplicationTest.Models.Team
+
+<h2>Удаление команды. Вы действительно хотите удлаить команду @Html.DisplayFor(m => m.Name)? </h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td><input type="submit" value="Удалить" /></td>
+        </tr>
+        <tr>
+            <td>@Html.ActionLink("Назад", "ListTeams")</td>
+        </tr>
+    </table>
+
+}
